@@ -1,0 +1,298 @@
+:root{
+  --grass-900:#0f2e1c;
+  --grass-700:#1c4d2e;
+  --grass-500:#2d7a45;
+  --line-white:#f4f7f2;
+  --chalk:#e8ecdf;
+  --paper:#faf9f4;
+  --ink:#16221a;
+  --ink-soft:#4a5a4e;
+  --gold:#d4a94a;
+  --card-bd:#dfe4d6;
+}
+*{box-sizing:border-box;}
+html{ background:#dfe3da; }
+body{
+  margin:0 auto;
+  max-width:450px;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  line-height:1.5;
+  padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  min-height:100vh;
+  box-shadow:0 0 32px rgba(0,0,0,.12);
+}
+.hero{
+  background:linear-gradient(160deg,var(--grass-900),var(--grass-700) 60%,var(--grass-500));
+  color:var(--line-white);
+  padding:28px 18px 22px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(255,255,255,.05) 38px 40px);
+  opacity:.5;
+}
+.hero-eyebrow{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:6px;
+  position:relative;
+}
+.hero h1{
+  margin:0 auto;
+  font-size:1.5rem;
+  line-height:1.25;
+  font-weight:800;
+  position:relative;
+  max-width:22ch;
+  text-align:center;
+}
+.hero p{
+  margin:10px 0 0;
+  font-size:.92rem;
+  color:#d6e4d9;
+  position:relative;
+}
+
+section{ padding:22px 16px 0; }
+h2.section-title{
+  font-size:1.3rem;
+  font-weight:800;
+  margin:0 0 14px;
+  color:var(--grass-700);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+h2.section-title .tag{
+  display:none;
+}
+h3.sub-title{
+  font-size:1.1rem;
+  font-weight:700;
+  margin:20px 0 14px;
+  color:var(--ink);
+  text-align:center;
+}
+.lede{
+  color:var(--ink-soft);
+  font-size:.9rem;
+  margin:6px 0 16px;
+}
+
+ul.bullets, ol.steps{
+  margin:0 0 14px;
+  padding-left:20px;
+}
+ul.bullets li, ol.steps li{
+  margin-bottom:6px;
+  font-size:.92rem;
+}
+ol.steps{ padding-left:22px; }
+ol.steps li::marker{ font-weight:700; color:var(--grass-500); }
+
+.callout{
+  background:var(--chalk);
+  border-left:4px solid var(--grass-500);
+  border-radius:8px;
+  padding:12px 14px;
+  font-size:.88rem;
+  color:var(--ink);
+  margin:14px 0;
+}
+.callout b{ color:var(--grass-700); }
+
+.arrow-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:#fff;
+  border:1px solid var(--card-bd);
+  border-radius:10px;
+  padding:12px 14px;
+  margin:10px 0;
+  font-size:.9rem;
+}
+.arrow-line .old{ color:var(--ink-soft); text-decoration:line-through; }
+.arrow-line .new{ color:var(--grass-700); font-weight:800; }
+.arrow-line .arrow{ color:var(--gold); font-weight:900; }
+
+/* Card-based table replacement for mobile */
+.card-table{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin:14px 0;
+}
+.card-row{
+  background:#fff;
+  border:1px solid var(--card-bd);
+  border-radius:10px;
+  padding:10px 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font-size:.88rem;
+}
+.card-row .label{ font-weight:700; color:var(--ink); }
+.card-row .value{ color:var(--ink-soft); text-align:right; }
+.card-row.highlight{
+  border-color:var(--gold);
+  background:#fdf6e6;
+}
+.card-row.highlight .value{ color:#8a6a1e; font-weight:700; }
+
+/* Stat grid (dimension calc table) */
+.stat-list{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:14px 0; }
+.stat-card{
+  background:#fff;
+  border:1px solid var(--card-bd);
+  border-radius:12px;
+  padding:10px 12px;
+}
+.stat-card .stat-name{
+  font-weight:800;
+  font-size:.78rem;
+  color:var(--grass-700);
+  margin-bottom:4px;
+}
+.stat-card .stat-calc{
+  font-size:.68rem;
+  color:var(--ink-soft);
+  margin-bottom:2px;
+}
+.stat-card .stat-result{
+  font-size:.84rem;
+  font-weight:800;
+  color:var(--ink);
+}
+
+img.figure{
+  width:100%;
+  border-radius:12px;
+  display:block;
+  margin:14px 0;
+  border:1px solid var(--card-bd);
+}
+.figure-cap{
+  font-size:.78rem;
+  color:var(--ink-soft);
+  text-align:center;
+  margin-top:-8px;
+  margin-bottom:14px;
+}
+
+.pill-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:10px 0 16px;
+}
+.pill{
+  background:var(--grass-700);
+  color:#fff;
+  font-size:.78rem;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:999px;
+}
+.pill.gold{ background:var(--gold); color:#3a2c05; }
+
+.divider{
+  height:1px;
+  background:var(--card-bd);
+  margin:26px 0;
+}
+
+.two-col{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.mini-card{
+  background:#fff;
+  border:1px solid var(--card-bd);
+  border-radius:12px;
+  padding:12px 14px;
+}
+.mini-card p{ font-size:.85rem; margin:0 0 8px; color:var(--ink-soft); }
+.mini-card img{ width:100%; border-radius:8px; display:block; }
+
+a.article-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  border:1px solid var(--card-bd);
+  border-radius:10px;
+  padding:12px 14px;
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:700;
+  font-size:.9rem;
+  margin:14px 0;
+}
+a.article-link .ico{
+  width:28px;height:28px;
+  border-radius:6px;
+  background:var(--grass-700);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  font-size:.85rem;
+}
+
+.table-wrap{
+  margin:14px 0;
+  border:1px solid var(--card-bd);
+  border-radius:12px;
+}
+table.data-table{
+  border-collapse:collapse;
+  table-layout:fixed;
+  width:100%;
+  font-size:.82rem;
+  background:#fff;
+}
+table.data-table th, table.data-table td{
+  padding:8px 8px;
+  text-align:left;
+  border-bottom:1px solid var(--card-bd);
+  overflow-wrap:break-word;
+}
+table.data-table th{
+  background:var(--chalk);
+  color:var(--grass-700);
+  font-weight:800;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+table.data-table tr:last-child td{ border-bottom:none; }
+table.data-table tr.highlight td{ background:#fdf6e6; font-weight:700; color:#8a6a1e; }
+table.data-table td b{ color:var(--ink); }
+
+.badge-week{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--grass-500);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:800;
+  border-radius:6px;
+  padding:2px 8px;
+  margin-left:6px;
+}
